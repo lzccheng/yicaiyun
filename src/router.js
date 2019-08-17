@@ -1,15 +1,20 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import { indexChild } from "./router/index";
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: "/",
-      name: "home",
-      component: Home
+      path: "",
+      redirect: "/index"
+    },
+    {
+      path: "/index",
+      name: "index",
+      component: () => import("@/layout/Content_Nav"),
+      children: indexChild
     },
     {
       path: "/about",
@@ -19,6 +24,10 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "./views/About.vue")
+    },
+    {
+      path: "*",
+      component: () => import("@/views/404.vue")
     }
   ]
 });
