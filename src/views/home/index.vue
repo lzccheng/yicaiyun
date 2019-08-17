@@ -34,6 +34,7 @@ export default {
   },
   mounted() {
     window.console.log(this.$api);
+    window.console.log(this.$store);
     this.getHomeData();
   },
   methods: {
