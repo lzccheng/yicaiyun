@@ -4,10 +4,7 @@ module.exports = {
     ['import', {
       libraryName: 'vant',
       libraryDirectory: 'es',
-      style: name => {
-        console.log(`name:`, name)
-        return `${name}/style/less`
-      }
+      style: name => `${name}/style/less`
     }, 'vant']
   ]
 };
